@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>AngularJS Directives</title>
+	</head>
+	
+	<body>
+		<h1>Directive Examples</h1>
+
+		<!-- TODO:this controller -->
+		<div ng-app="" ng-controller="countryController">
+
+			<p>Enter Your Name: <input type="text" ng-model="name"></p>
+			<p>Hello <span ng-bind="name"></span>!</p>
+			<p>List of Countries with local:</p>
+
+			<ol>
+				<li ng-repeat="country in countries">
+					{{ 'Country: ' + country.name + ', Locale: ' + country.locale }}
+				</li>
+			</ol>
+
+			
+		</div>
+		
+		<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
+		<script src = "./countryController.js"></script>
+	</body>
+</html>

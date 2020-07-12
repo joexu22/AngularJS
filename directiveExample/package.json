@@ -1,0 +1,17 @@
+{
+  "name": "directiveexample",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "http-server .",
+    "test": "karma"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine-core": "^3.5.0",
+    "karma": "^5.1.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-jasmine": "^3.3.1",
+    "protractor": "^7.0.0"
+  }
+}

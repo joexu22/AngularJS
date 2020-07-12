@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>AngularJS Directives</title>
+	</head>
+	
+	<body>
+		<h1>Directive Example</h1>
+
+		<!-- ng-app -->
+		<!-- ng=init -->
+		<div ng-app="" ng-init="countries = [
+			{
+				locale:'en-US',
+				name: 'United States'
+			}, 
+			{
+				locale:'en-GB',
+				name: 'United Kingdom'
+			},
+			{
+				locale:'en-FR',
+				name: 'France'
+			}]"> 
+
+			<!-- ng-model -->
+			<p>Enter Your Name: <input type="text" ng-model="name"></p>
+			<p>Hello <span ng-bind="name"></span>!</p>
+			
+			<p>List of Countries with local:</p>
+
+			<!-- ng-repeat -->
+			<ol>
+				<li ng-repeat="country in countries">
+					{{ 'Country: ' + country.name + ', Locale: ' + country.locale }}
+				</li>
+			</ol>
+
+			
+		</div>
+		
+		<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
+	</body>
+</html>

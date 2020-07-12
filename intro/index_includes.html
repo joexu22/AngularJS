@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>AngularJS Includes</title>
+		<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
+		<style>
+			table, th , td {
+				border: 1px solid grey;
+				border-collapse: collapse;
+				padding: 5px;
+			}
+			table tr:nth-child(odd) {
+				background-color: #f2f2f2;
+			}
+			table tr:nth-child(even) {
+				background-color: #ffffff;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Include Example</h1>
+
+		<div ng-app = "mainApp" ng-controller = "studentController">
+
+			<div ng-app = "mainApp" ng-controller = "studentController">
+				<div ng-include = "'./main.html'"></div>
+				<div ng-include = "'./subjects.html'"></div>
+			</div>
+
+			<script>
+				var mainApp = angular.module("mainApp", []);
+	
+				mainApp.controller('studentController', function($scope) {
+					$scope.student = {
+						firstName: "GuanZhou",
+						lastName: "Xu",
+						fees: 500,
+						subjects: [
+							{
+								name: 'Physics',
+								marks: 75
+							},
+							{
+								name: 'Chemistry',
+								marks: 65
+							},
+							{
+								name: 'Math',
+								marks: 95
+							},
+							{
+								name: 'English',
+								marks: 80
+							},
+							{
+								name: 'Chinese',
+								marks: 60
+							},
+						],	
+						fullName: function() {
+							var studentObject;
+							studentObject = $scope.student;
+							return studentObject.firstName + " " + studentObject.lastName;
+						}
+					}
+				});
+			</script>
+	</body>
+</html>

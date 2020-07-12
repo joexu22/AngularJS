@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>AngularJS HTML DOM</title>
+		<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
+	</head>
+	
+	<body>
+		<h1>HTML DOM Example</h1>
+
+		<div ng-app="mainApp" ng-controller="clickController">
+			<table border = "0">
+				<tr>
+					<td>
+						<!-- when enabled 'ng-model' will be true -->
+						<input type = "checkbox" ng-model = "enableDisableButton">
+						Disable Button
+					</td>
+					<td>
+						<!-- ng-disabled - disable when true-->
+						<button ng-click = clickButton() ng-disabled = "enableDisableButton">Click Me!</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<!-- when enabled 'ng-model' will be true -->
+						<input type = "checkbox" ng-model = "showHide1">
+						Show Button
+					</td>
+					<td>
+						<!-- ng-show - show when true -->
+						<button ng-click = clickButton() ng-show = "showHide1">Click Me!</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<!-- when enabled 'ng-model' will be true -->
+						<input type = "checkbox" ng-model = "showHide2">
+						Hide Button
+					</td>
+					<td>
+						<!-- ng-hide - hidden when true -->
+						<button ng-click = clickButton() ng-hide = "showHide2">Click Me!</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Total click: {{ clickCounter }}
+					</td>
+					<td>
+						<!-- ng-click -->
+						<button ng-click = clickButton()>Click Me!</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<script>
+			var mainApp = angular.module("mainApp", []);
+
+			mainApp.controller("clickController", function($scope) {
+				$scope.clickCounter = 0,
+
+				$scope.clickButton = function() {
+					$scope.clickCounter = $scope.clickCounter + 1;
+				}
+			})
+		</script>
+
+	</body>
+</html>

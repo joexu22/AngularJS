@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>AngularJS Custom Directives</title>
+		
+		<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+	</head>
+	
+	<body>
+		<h1>Custom Directive Example</h1>
+
+		<div ng-app = "mainApp" ng-controller = "studentController">
+			<student name = "Gary"></student>
+			<br>
+			<student name = "Joe"></student>
+		 </div>
+		   
+		 <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js">
+		 </script>
+		 
+		 <script>
+			var mainApp = angular.module("mainApp", []);
+			
+			mainApp.directive('student', function() {
+			   var directive = {};
+			   directive.restrict = 'E';
+			   directive.template = "Student: <b>{{student.name}}</b> , Roll No: <b>{{student.rollNumber}}</b>";
+			   
+			   directive.scope = {
+				  student : "=name"
+			   }
+
+			   directive.compile = function(element, attributes) {
+				  element.css("border", "1px solid #cccccc");
+				  
+				  var linkFunction = function($scope, element, attributes) {
+					 element.html("Student: <b>"+$scope.student.name +"</b> , Roll No: <b>"+$scope.student.rollNumber+"</b><br/>");
+					 element.css("background-color", "#ff00ff");
+				  }
+				  return linkFunction;
+			   }
+			   
+			   return directive;
+			});
+
+			mainApp.controller('studentController', function($scope) {
+			   $scope.Gary = {};
+			   $scope.Gary.name = "Guanzhou Xu";
+			   $scope.Gary.rollNumber  = 1;
+   
+			   $scope.Joe = {};
+			   $scope.Joe.name = "MiaoXing Xu";
+			   $scope.Joe.rollNumber  = 2;
+			});
+		 </script>
+
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>AngularJS Expressions</title>
+	</head>
+	
+	<body>
+		<h1>Expression Example</h1>
+
+		<div ng-app = "" ng-init = "
+			quantity = 1;
+			cost = 30; 
+			student = {
+				firstName:'GuanZhou',
+				lastLame:'Xu',
+				rollNumber:22
+			};
+			marks = [80,90,75,73,60]">
+		
+			<!-- string -->
+			<p>Hello {{student.firstName + " " + student.lastLame}}!</p>
+		
+			<!-- number -->
+			<p>Expense on Books : {{cost * quantity}} USD</p>
+		
+			<!-- object -->
+			<p>Roll No: {{student.rollNumber}}</p>
+		
+			<!-- array -->
+			<p>Marks(Math): {{marks[3]}}</p>
+		 
+		</div>
+	
+		<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
+	</body>
+</html>
